@@ -8,7 +8,6 @@ class TasksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       body: Stack(
         children: [
@@ -19,9 +18,9 @@ class TasksScreen extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 height: screenHeight * 0.5,
-                child: Image.asset(
-                  'images/kit.jpg', // Путь к вашему изображению
-                  fit: BoxFit.cover, // Параметр для масштабирования изображения
+                child: const Image(
+                  image: AssetImage('images/kit.jpg'),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -43,12 +42,16 @@ class TasksScreen extends StatelessWidget {
                     const SizedBox(height: 50), // Уменьшен отступ заголовка
                     const Text(
                       'Secrets of Atlantis',
-                      style: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 5),
                     // Кнопка "Follow"
                     OutlinedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pushNamed(
+                          '/',
+                        );
+                      },
                       style: OutlinedButton.styleFrom(
                         side: const BorderSide(color: Color(0xFFfb7b18)), // Цвет границы кнопки
                         shape: RoundedRectangleBorder(
@@ -60,7 +63,7 @@ class TasksScreen extends StatelessWidget {
                         style: TextStyle(color: Color(0xFFfb7b18)), // Цвет текста кнопки
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
                     // Соединенный блок с отзывом и рейтингом
                     Container(
                       decoration: BoxDecoration(
@@ -143,11 +146,11 @@ class TasksScreen extends StatelessWidget {
                                     SizedBox(width: 8),
                                     Text(
                                       'Fantasy',
-                                      style: TextStyle(fontSize: 16, color: Color(0xFFFFFFFF)), // Черный цвет текста
+                                      style: TextStyle(fontSize: 14, color: Color(0xFFFFFFFF)), // Черный цвет текста
                                     ),
                                   ],
                                 ),
-                                Icon(Icons.notifications, color: Color(0xFF808080)), // Серый цвет колокольчика
+                                Icon(Icons.notifications_outlined, color: Colors.white), // Серый цвет колокольчика
                               ],
                             ),
                           ),
@@ -233,23 +236,23 @@ class TasksScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(16.0), // Закругленные края
                       ),
                       padding: const EdgeInsets.all(16.0),
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Картинка слева
-                          Image.asset(
-                            'images/invite_image.png', // Замените на ваш путь к изображению
-                            width: 40,
-                            height: 40,
+                          // Картинка слева                    
+                          Image(
+                            image: AssetImage('images/p5.png'),
+                            width: 100,
+                            height: 100,
                           ),
                           // Текст посередине
-                          const Text(
-                            'Invite your Friends to join',
-                            style: TextStyle(fontSize: 16, color: Colors.black),
+                          Text(
+                            'Invite your\nFriends to join',
+                            style: TextStyle(fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold),
                           ),
                           // Иконка ссылки справа
-                          const Icon(
-                            Icons.link,
+                          Icon(
+                            Icons.share,
                             color: Colors.black,
                           ),
                         ],
@@ -267,7 +270,7 @@ class TasksScreen extends StatelessWidget {
             child: Container(
               decoration: const BoxDecoration(
                 shape: BoxShape.circle, // Круг
-                color: const Color(0xFFfbf5f5),
+                color:  Color(0xFFfbf5f5),
               ),
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
@@ -325,6 +328,7 @@ class PositionedAvatar extends StatelessWidget {
   final Color backgroundColor;
 
   const PositionedAvatar({
+    dynamic key,
     required this.imageUrl,
     this.leftOffset = 0,
     this.backgroundColor = Colors.transparent,

@@ -14,12 +14,12 @@ class SessionScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Изображение сверху
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.3, // Уменьшено для размещения над текстом
                 child: Image.asset(
                   'images/p2.jpg', // Путь к вашему изображению
-                  fit: BoxFit.cover, // Параметр для масштабирования изображения
+                  fit: BoxFit.contain, // Параметр для масштабирования изображения
                 ),
               ),
               const SizedBox(height: 20), // Отступ между изображением и текстом
@@ -28,7 +28,7 @@ class SessionScreen extends StatelessWidget {
               const Text(
                 'Peter Mach',
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 14,
                   color: Colors.grey,
                   fontWeight: FontWeight.normal,
                 ),
@@ -45,7 +45,7 @@ class SessionScreen extends StatelessWidget {
               const Text(
                 'Join the Community as we prepare over 33 days to relax and feel joy with the mind and happiness session across the World.',
                 style: TextStyle(
-                  fontSize: 14,
+                  fontSize: 15,
                   color: Colors.black, // Черный цвет текста
                 ),
               ),
@@ -104,7 +104,7 @@ class SessionScreen extends StatelessWidget {
   Widget _buildCard({required String title, required String subtitle, required Color color}) {
     return Container(
       margin: const EdgeInsets.only(bottom: 9), // Отступ между карточками
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(10),
       // decoration: BoxDecoration(
       //   // color: color.withOpacity(0.1), // Полупрозрачный фон с цветом
       //   // borderRadius: BorderRadius.circular(10),
@@ -120,7 +120,6 @@ class SessionScreen extends StatelessWidget {
               foregroundColor: Colors.white,
                //радиус на 45
             ),
-            // color: color,
             icon: const Icon(
               Icons.play_arrow, // Значок ▷
               color: Colors.white,             
@@ -134,7 +133,7 @@ class SessionScreen extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 19,
                     fontWeight: FontWeight.bold,
                     color: Colors.black, // Цвет текста
                   ),
@@ -142,7 +141,7 @@ class SessionScreen extends StatelessWidget {
                 Text(
                   subtitle,
                   style: const TextStyle(
-                    fontSize: 10,
+                    fontSize: 14,
                     color: Colors.grey, // Цвет текста
                   ),
                 ),

@@ -23,7 +23,7 @@ class SongScreen extends StatelessWidget {
                           children: [                            
                             Text(
                               'Meditate',
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 30,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -31,7 +31,7 @@ class SongScreen extends StatelessWidget {
                             ),
                           ],
                         ),
-                        const Icon(
+                        Icon(
                           Icons.search,
                           color: Colors.black,
                           size: 30,
@@ -39,16 +39,16 @@ class SongScreen extends StatelessWidget {
                       ],
                     ),
                     Divider(
-                      height: 10,
-                      thickness: 2,
-                      color: Color.fromARGB(255, 234, 234, 234),
-                    ),
-                  ],
-                ),
+                    height: 10,
+                    thickness: 2,
+                    color: Color.fromARGB(109, 234, 234, 234),
+                  ),
+                ],
+              ),
               ),
                const SizedBox(height: 10),
               // Секция с text карточками
-              Container(
+              SizedBox(
                 height: 45, // Высота всей области
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -282,15 +282,14 @@ class SongScreen extends StatelessWidget {
   // Функция для создания верхней карточки
   Widget _buildTextCard({required String text, bool isFirstCard = false}) {
     return SizedBox(
-      height: 3.2, // Устанавливаем высоту карточки
       child: Card(
         color: isFirstCard ? const Color(0xFF039EA2) : const Color(0xFFCDFDFE), // Цвет карточки
         elevation: 0, // Убираем тень, если она не нужна
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0), // Закругленные углы
+          borderRadius: BorderRadius.circular(45.0), // Закругленные углы
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0), // Внутренние отступы
+          padding: const EdgeInsets.all(8.5), // Внутренние отступы
           child: Center(
             child: Text(
               text,

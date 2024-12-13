@@ -15,12 +15,12 @@ class LoginPage extends StatelessWidget {
           Positioned.fill(
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: Container(
+              child: SizedBox(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.5,
                 child: Image.asset(
                   'images/p1.jpg', // Путь к вашему изображению
-                  fit: BoxFit.cover, // Параметр для масштабирования изображения
+                  fit: BoxFit.contain, // Параметр для масштабирования изображения
                 ),
               ),
             ),
